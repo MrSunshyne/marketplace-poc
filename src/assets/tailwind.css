@@ -3,3 +3,9 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@screen md {
+  .container {
+    padding: 0 4rem;
+  }
+}
