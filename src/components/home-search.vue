@@ -24,22 +24,21 @@
           <div
             class="inline-flex rounded-md overflow-hidden shadow rounded-left"
           >
-            <a
-              href="#"
+            <button
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
             >
               Search
-            </a>
+            </button>
           </div>
         </div>
 
         <div class="ml-3 inline-flex ">
-          <a
-            href="#"
+          <router-link
+            :to="{ name: 'create' }"
             class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium  text-red-700 hover:text-red-600  focus:outline-none focus:shadow-outline focus:border-red-300 transition duration-150 ease-in-out"
           >
             I want to sell something
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import PageHome from "../views/PageHome.vue";
 import PageDetail from "../views/PageDetail.vue";
+import PageCreate from "../views/PageCreate.vue";
 
 Vue.use(VueRouter);
 
@@ -10,6 +11,11 @@ const routes = [
     path: "/",
     name: "home",
     component: PageHome,
+  },
+  {
+    path: "/+",
+    name: "create",
+    component: PageCreate,
   },
   {
     path: "/detail/:id",

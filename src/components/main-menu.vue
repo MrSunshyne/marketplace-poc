@@ -10,12 +10,11 @@
 
     <ul class="flex mr-3">
       <li>
-        <a
-          href="#"
+        <router-link
+          :to="{ name: 'create' }"
           class="hover:bg-red-100 hover:transition-opacity transition rounded-lg"
-          target="_blank"
-          >Create Listing +</a
-        >
+          >Create Listing +
+        </router-link>
         <!-- <SvgMenuBg /> -->
       </li>
     </ul>
