@@ -8,7 +8,7 @@
       >Marketplace PoC</router-link
     >
 
-    <ul class="flex mr-3">
+    <ul class="flex">
       <li>
         <router-link
           :to="{ name: 'create' }"
@@ -33,7 +33,6 @@
     li {
       position: relative;
       button {
-        margin: 10px;
       }
 
       a {
@@ -52,10 +51,7 @@
   .main-menu {
     ul {
       li {
-        padding: 10px;
-
         button {
-          margin: 10px;
         }
         a {
           padding: 10px 20px;

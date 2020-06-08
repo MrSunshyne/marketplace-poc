@@ -1,7 +1,7 @@
 <template>
   <div>
     <form>
-      <div class="grid space-y-4">
+      <div class="flex flex-col space-y-4">
         <div class="col-span-1 ">
           <label for="title">Title</label>
           <input
@@ -69,14 +69,17 @@
         </div>
 
         <div class="col-span-1">
-          <label for="category">Category</label>
-          <label>Pick a categoryid="category"</label>
+          <label>Pick a category</label>
           {{ category }}
         </div>
 
         <div class="col-span-1">
           <label for="description">Description</label>
-          <textarea v-model="description" id="description"></textarea>
+          <textarea
+            v-model="description"
+            id="description"
+            class="border-2 border-gray-200 rounded-lg "
+          ></textarea>
           {{ description }}
         </div>
       </div>
@@ -93,9 +96,9 @@
           <span class="ml-3 inline-flex rounded-md shadow-sm">
             <button
               type="submit"
-              class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+              class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
             >
-              Save
+              Create
             </button>
           </span>
         </div>
