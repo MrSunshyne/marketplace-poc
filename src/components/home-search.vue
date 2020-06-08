@@ -26,7 +26,7 @@
           >
             <a
               href="#"
-              class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
             >
               Search
             </a>
@@ -36,7 +36,7 @@
         <div class="ml-3 inline-flex ">
           <a
             href="#"
-            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium  text-indigo-700 hover:text-indigo-600  focus:outline-none focus:shadow-outline focus:border-indigo-300 transition duration-150 ease-in-out"
+            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium  text-red-700 hover:text-red-600  focus:outline-none focus:shadow-outline focus:border-red-300 transition duration-150 ease-in-out"
           >
             I want to sell something
           </a>

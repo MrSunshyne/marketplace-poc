@@ -10,7 +10,12 @@
 
     <ul class="flex mr-3">
       <li>
-        <a href="#" target="_blank">Create Listing +</a>
+        <a
+          href="#"
+          class="hover:bg-red-100 hover:transition-opacity transition rounded-lg"
+          target="_blank"
+          >Create Listing +</a
+        >
         <!-- <SvgMenuBg /> -->
       </li>
     </ul>
@@ -33,7 +38,7 @@
       }
 
       a {
-        padding: 10px;
+        padding: 10px 20px;
         display: block;
         @apply border-2;
         text-decoration: none;
@@ -54,7 +59,7 @@
           margin: 10px;
         }
         a {
-          padding: 10px;
+          padding: 10px 20px;
         }
       }
     }
