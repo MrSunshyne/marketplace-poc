@@ -29,7 +29,7 @@
           </div>
           <div class="sm:col-span-1">
             <label class="text-sm leading-5 font-medium text-gray-500">
-              Email adivress
+              Email address
             </label>
             <div class="mt-1 text-sm leading-5 text-gray-900">
               {{ currentListing.email }}
