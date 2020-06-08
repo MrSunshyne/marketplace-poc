@@ -1,24 +1,22 @@
-# vue-tailwind-boilerplate
+# Marketplace PoC
 
-## Project setup
-```
-npm install
-```
+## Background
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+1. Starter Template : [MrSunshyne/vue-tailwind-boilerplate](https://github.com/mrsunshyne/vue-tailwind-boilerplate)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Stack
 
-### Lints and fixes files
-```
-npm run lint
-```
+- VueJS
+- TailwindCSS
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Features
+
+- **A Listing Search Page**
+  (which could also be the Home / Landing Page).
+- **A Listing detail Page**.
+  (Showing more info on a single Listing, refer to list at the end of the readme)
+- **A Create Listing Page**
+
+## Bonus Features
+
+.. we'll see ..
