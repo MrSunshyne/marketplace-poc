@@ -1,12 +1,16 @@
 <template>
-	<div class="home">
-		<h1 class="text-2xl">Welcome to your boilerplate</h1>
-	</div>
+  <div class="home">
+    <HomeSearch />
+  </div>
 </template>
 
 <script>
+import HomeSearch from "../components/home-search.vue";
+
 export default {
-	name: "home",
-	components: {}
+  name: "home",
+  components: {
+    HomeSearch,
+  },
 };
 </script>
