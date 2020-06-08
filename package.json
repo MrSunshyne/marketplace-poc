@@ -1,11 +1,10 @@
 {
-  "name": "vue-tailwind-boilerplate",
+  "name": "marketplace-poc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --dest docs",
-    "deploy-gh": "npm run build && git add -A && git commit -m 'generated using npm run deploy-gh' &&  git push -u origin master"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.4.4",
