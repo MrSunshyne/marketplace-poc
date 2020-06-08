@@ -17,6 +17,33 @@
   (Showing more info on a single Listing, refer to list at the end of the readme)
 - **A Create Listing Page**
 
+## Specs
+
+A single listing should have these fields
+
+    Title
+    Slug
+    Description
+    Date Online
+    Date Offline
+    Price
+    Currency
+    Contact Details
+        Mobile
+        Email
+    Category (One of the following)
+        Furniture
+        Electronics
+        Cars
+        Property
+
+And search should have at least the following features.
+
+    Search by string matching in title
+    Search by category
+
 ## Bonus Features
 
 .. we'll see ..
+
+## Deploy on Netlify
