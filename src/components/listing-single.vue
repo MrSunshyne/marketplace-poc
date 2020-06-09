@@ -1,5 +1,8 @@
 <template>
-  <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+  <router-link
+    class="flex flex-col rounded-lg shadow-lg hover:shadow-md transition duration-300 ease-in-out transition-shadow overflow-hidden"
+    :to="{ name: 'detail', params: { id: details.id } }"
+  >
     <div class="flex-shrink-0">
       <img
         class="h-48 w-full object-cover"
@@ -10,26 +13,20 @@
     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
       <div class="flex-1">
         <p class="text-sm leading-5 font-medium text-red-600">
-          <a href="#" class="hover:underline">{{ details.category }} </a>
+          {{ details.category }}
         </p>
-        <router-link
-          :to="{ name: 'detail', params: { id: details.id } }"
-          class="block"
-        >
-          <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
-            {{ details.title }}
-          </h3>
-        </router-link>
+
+        <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
+          {{ details.title }}
+        </h3>
       </div>
       <div class="mt-3 flex items-center">
         <div class="flex-shrink-0">
-          <a href="#">
-            <img
-              class="h-10 w-10 rounded-full"
-              src="https://source.unsplash.com/property/600x300?as"
-              alt=""
-            />
-          </a>
+          <img
+            class="h-10 w-10 rounded-full"
+            src="https://source.unsplash.com/property/600x300?as"
+            alt=""
+          />
         </div>
         <div class="ml-3">
           <p class="text-sm leading-5 font-medium text-gray-900">
@@ -45,7 +42,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
