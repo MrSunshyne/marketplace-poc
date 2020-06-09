@@ -4,6 +4,26 @@
 
 1. Starter Template : [MrSunshyne/vue-tailwind-boilerplate](https://github.com/mrsunshyne/vue-tailwind-boilerplate)
 
+## Requirements
+
+1. Everything in package.json. `$ npm install at project root`
+2. install `json-server` globally. `$ npm install -g json-server`
+
+## Usage
+
+1. Clone the repository
+2. Create an .env file with this content:
+
+   `VUE_APP_BASEURL = "http://localhost:3535"`
+
+3. cd in the `public/api` directory and start the json-server by running
+
+   `$ json-server db.json --watch --port 3535`
+
+4. Run the vue app at the project root using
+
+   `$ npm run serve`
+
 ## Stack
 
 - VueJS
