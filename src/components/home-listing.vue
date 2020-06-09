@@ -32,10 +32,10 @@ export default {
   },
   methods: {
     async fetchListings() {
-      let raw = await fetch("/api/db.json");
+      let raw = await fetch("/api/featured.json");
       raw = await raw.json();
       let listings = raw.listings[0];
-      this.listings = listings.filter((item) => item.featured === true);
+      this.listings = listings;
     },
   },
   mounted() {
