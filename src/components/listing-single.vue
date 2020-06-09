@@ -12,34 +12,20 @@
     </div>
     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
       <div class="flex-1">
-        <p class="text-sm leading-5 font-medium text-red-600">
-          {{ details.category }}
-        </p>
-
-        <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
+        <h3 class="mt-2 text-xl leading-7 text-gray-900">
           {{ details.title }}
         </h3>
       </div>
-      <div class="mt-3 flex items-center">
-        <div class="flex-shrink-0">
-          <img
-            class="h-10 w-10 rounded-full"
-            src="https://source.unsplash.com/property/600x300?as"
-            alt=""
-          />
-        </div>
-        <div class="ml-3">
-          <p class="text-sm leading-5 font-medium text-gray-900">
-            <time datetime="2020-03-16">
-              {{ details.date_offline }}
-            </time>
-          </p>
-          <div class="flex text-sm leading-5 text-gray-500">
-            <time datetime="2020-03-16">
-              {{ details.date_online }}
-            </time>
-          </div>
-        </div>
+      <div class="mt-3 flex items-center justify-between">
+        <p class="text-xs leading-5 uppercase font-bold text-red-600">
+          {{ details.category }}
+        </p>
+
+        <p
+          class="text-2xl leading-5 font-black text-gray-900 bg-yellow-100 p-2 rounded-lg"
+        >
+          {{ details.currency }} {{ details.price }}
+        </p>
       </div>
     </div>
   </router-link>

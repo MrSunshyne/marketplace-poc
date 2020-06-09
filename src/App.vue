@@ -1,5 +1,5 @@
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex min-h-screen flex-col page">
     <main-menu></main-menu>
     <router-view class="container mx-auto flex-grow" />
   </div>
@@ -17,4 +17,11 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.page {
+  background-image: url("./assets/images/bg.svg");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+}
+</style>

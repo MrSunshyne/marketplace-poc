@@ -9,15 +9,16 @@
         >
           Buy anything?
           <br />
-          Just one utility function away.
+          Just one utility function away. {{ term }}
         </h2>
 
-        <div class="flex justify-center">
+        <form class="flex justify-center">
           <div class="search-box">
             <input
               type="text"
               class="p-3 border-4 border-gray-200 text-2xl rounded-right text-center"
               placeholder="House, apartment, car.."
+              v-model="term"
             />
           </div>
 
@@ -26,11 +27,12 @@
           >
             <button
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+              @click.prevent="searchTerm(term)"
             >
               Search
             </button>
           </div>
-        </div>
+        </form>
 
         <div class="ml-3 inline-flex ">
           <router-link
@@ -46,7 +48,27 @@
 </template>
 
 <script>
-export default {};
+import { mapActions, mapGetters } from "vuex";
+export default {
+  data() {
+    return {
+      apiEndpoint: this.$store.state.apiEndpoint,
+      term: "two",
+      results: [],
+    };
+  },
+  computed: {
+    ...mapGetters(["getSearchResults"]),
+  },
+  methods: {
+    ...mapActions(["searchTerm"]),
+  },
+  // watch: {
+  //   term: function(n, o) {
+  //     this.searchTerm();
+  //   },
+  // },
+};
 </script>
 
 <style lang="scss" scoped></style>
