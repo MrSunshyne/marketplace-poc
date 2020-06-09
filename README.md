@@ -46,6 +46,9 @@ And search should have at least the following features.
 
 .. we'll see ..
 
-## Deploy on Netlify
+## Deploy on Netlify (deprecated)
 
-# [View Site ](https://marketplace-poc.netlify.app)
+Note : Serving the data from json-server doesn't allow the app to be deployed easily on netlify.
+Would have to implement cloud functions.
+
+<!-- # [View Site ](https://marketplace-poc.netlify.app) -->
