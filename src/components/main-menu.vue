@@ -8,11 +8,11 @@
       >Marketplace PoC</router-link
     >
 
-    <ul class="flex">
-      <li>
+    <ul class="flex justify-center">
+      <li class="relative">
         <router-link
           :to="{ name: 'create' }"
-          class="hover:bg-red-100 hover:transition-opacity transition rounded-lg"
+          class="block hover:bg-red-100 hover:transition-opacity transition rounded-lg px-4 py-2"
           >Create Listing +
         </router-link>
         <!-- <SvgMenuBg /> -->
@@ -21,43 +21,4 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-.main-menu {
-  /* @apply bg-black; */
-
-  ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-
-    li {
-      position: relative;
-      button {
-      }
-
-      a {
-        padding: 10px 20px;
-        display: block;
-        @apply border-2;
-        text-decoration: none;
-        border-color: transparent;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-@screen sm {
-  .main-menu {
-    ul {
-      li {
-        button {
-        }
-        a {
-          padding: 10px 20px;
-        }
-      }
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>
