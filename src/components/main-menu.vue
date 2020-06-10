@@ -11,6 +11,22 @@
     <ul class="flex justify-center">
       <li class="relative">
         <router-link
+          :to="{ name: 'login' }"
+          class="block hover:bg-red-100 hover:transition-opacity transition rounded-lg px-4 py-2"
+          >Login
+        </router-link>
+        <!-- <SvgMenuBg /> -->
+      </li>
+      <li class="relative">
+        <router-link
+          :to="{ name: 'register' }"
+          class="block hover:bg-red-100 hover:transition-opacity transition rounded-lg px-4 py-2"
+          >Register
+        </router-link>
+        <!-- <SvgMenuBg /> -->
+      </li>
+      <li class="relative">
+        <router-link
           :to="{ name: 'create' }"
           class="block hover:bg-red-100 hover:transition-opacity transition rounded-lg px-4 py-2"
           >Create Listing +

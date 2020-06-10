@@ -25,7 +25,7 @@
           <input
             v-model="formData.price"
             class="p-3 p-2 focus:border-gray-500 border-2 border-gray-200 rounded-lg "
-            type="text"
+            type="number"
             id="currency"
           />
         </div>
@@ -95,7 +95,7 @@
           <textarea
             v-model="formData.description"
             id="description"
-            class="p-3 p-2 focus:border-gray-500 border-2 border-gray-200 rounded-lg "
+            class="p-3 p-2 focus:border-gray-500 border-2 border-gray-200 rounded-lg h-40 "
           ></textarea>
         </div>
 
@@ -104,7 +104,29 @@
             class="uppercase text-sm font-bold tracking-wider text-gray-600"
             >Pick a category</label
           >
-          {{ formData.category }}
+
+          <div class="flex space-x-4">
+            <div
+              v-for="(category, index) in categories"
+              :key="index"
+              @click="selectedCategory = index"
+              class="cursor-pointer bg-gray-200 px-4 py-2 rounded w-1/4 flex flex-col justify-center"
+              :class="
+                selectedCategory === index
+                  ? 'font-bold bg-red-300 text-white'
+                  : ''
+              "
+            >
+              <img
+                class="block w-full"
+                :src="`/images/categories/${category}.svg`"
+                alt=""
+              />
+              <div class="text-center capitalize text-black">
+                {{ category }}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="mt-8 border-t border-gray-200 pt-5">
@@ -135,7 +157,8 @@ export default {
   data() {
     return {
       apiEndpoint: this.$store.state.apiEndpoint,
-
+      categories: ["property", "car", "electronics", "furniture"],
+      selectedCategory: 0,
       formData: {
         title: "My Title",
         description: "My Description",
@@ -145,7 +168,7 @@ export default {
         currency: "$",
         mobile: "491-639-5303",
         email: "email@yahoo.com",
-        category: "Property",
+        category: "",
         slug: true,
         featured: false,
       },
@@ -153,7 +176,12 @@ export default {
   },
   methods: {
     createListing() {
-      const raw = JSON.stringify(this.formData);
+      const data = {
+        ...this.formData,
+        category: this.categories[this.selectedCategory],
+      };
+
+      const raw = JSON.stringify(data);
 
       let requestOptions = {
         method: "POST",
