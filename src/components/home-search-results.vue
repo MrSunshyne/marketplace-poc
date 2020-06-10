@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="relative pb-20 px-4 sm:px-6  lg:pb-28 lg:px-8">
-      <div class="relative space-y-4" v-if="getSearchResults.length > 0">
+    <div
+      class="relative pb-20 px-4 sm:px-6 lg:pb-28 lg:px-8"
+      v-if="getSearchResults.length > 0"
+    >
+      <div class="relative space-y-4">
         <div class="flex items-center justify-between space-x-3">
           <h2 class="text-3xl font-bold">
             Your search yeilded {{ resultsCount }} results
