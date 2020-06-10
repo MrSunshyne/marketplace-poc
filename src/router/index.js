@@ -3,7 +3,8 @@ import VueRouter from "vue-router";
 import PageHome from "../views/PageHome.vue";
 import PageDetail from "../views/PageDetail.vue";
 import PageCreate from "../views/PageCreate.vue";
-
+import PageLogin from "../views/PageLogin.vue";
+import PageRegister from "../views/PageRegister.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -21,6 +22,16 @@ const routes = [
     path: "/detail/:id",
     name: "detail",
     component: PageDetail,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: PageLogin,
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: PageRegister,
   },
 ];
 
