@@ -9,7 +9,7 @@
         >
           Buy anything?
           <br />
-          Just one utility function away. {{ term }}
+          Just one utility function away.
         </h2>
 
         <form class="flex justify-center">

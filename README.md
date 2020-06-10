@@ -6,7 +6,7 @@
 
 ## Requirements
 
-1. Everything in package.json. `$ npm install at project root`
+1. Everything in package.json. `$ npm install` at the project root
 2. install `json-server` globally. `$ npm install -g json-server`
 
 ## Usage
