@@ -9,6 +9,7 @@
         >Marketplace PoC</router-link
       >
       <router-link
+        v-if="!$route.path.includes('/new')"
         :to="{ name: 'create' }"
         class="hover:bg-gray-800 bg-gray-700 text-sm text-white hover:transition-opacity transition rounded-lg px-4 items-center flex "
         >Create Listing +

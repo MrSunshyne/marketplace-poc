@@ -2,9 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import PageHome from "../views/PageHome.vue";
 import PageDetail from "../views/PageDetail.vue";
-import PageCreate from "../views/PageCreate.vue";
+import PageNewListing from "../views/PageNewListing.vue";
 import PageLogin from "../views/PageLogin.vue";
 import PageRegister from "../views/PageRegister.vue";
+import PageCreate from "../views/PageCreate.vue";
+import PageConfirm from "../views/PageConfirm.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -14,9 +16,20 @@ const routes = [
     component: PageHome,
   },
   {
-    path: "/add",
-    name: "create",
-    component: PageCreate,
+    path: "/new",
+    component: PageNewListing,
+    children: [
+      {
+        path: "+",
+        name: "create",
+        component: PageCreate,
+      },
+      {
+        path: "confirm",
+        name: "confirm",
+        component: PageConfirm,
+      },
+    ],
   },
   {
     path: "/detail/:id",

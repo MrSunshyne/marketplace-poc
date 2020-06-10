@@ -1,6 +1,13 @@
 <template>
   <div>
-    <form @submit.prevent="createListing()">
+    <form @submit.prevent="checkForm">
+      <div v-if="errors.length" class="bg-yellow-300 rounded-lg py-3 px-8 mb-8">
+        <p class="font-bold">🥴 Please correct the following error(s):</p>
+        <ol class="list-decimal list-inside py-2">
+          <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+        </ol>
+      </div>
+
       <div class="grid grid-cols-4 gap-4">
         <div class="col-span-3 flex flex-col space-y-2 ">
           <label
@@ -107,12 +114,12 @@
 
           <div class="flex space-x-4">
             <div
-              v-for="(category, index) in categories"
-              :key="index"
-              @click="selectedCategory = index"
+              v-for="category in categories"
+              :key="category"
+              @click="selectCategory(category)"
               class="cursor-pointer bg-gray-200 px-4 py-2 rounded w-1/4 flex flex-col justify-center"
               :class="
-                selectedCategory === index
+                formCategory == category
                   ? 'font-bold bg-red-300 text-white'
                   : ''
               "
@@ -132,17 +139,18 @@
       <div class="mt-8 border-t border-gray-200 pt-5">
         <div class="flex justify-end">
           <span class="inline-flex rounded-md shadow-sm">
-            <button
+            <router-link
+              :to="{ name: 'home' }"
               class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
             >
               Cancel
-            </button>
+            </router-link>
           </span>
           <span class="ml-3 inline-flex rounded-md shadow-sm">
             <input
               type="submit"
-              class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
-              value="Create"
+              class="cursor-pointer inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
+              value="Continue"
             />
           </span>
         </div>
@@ -153,52 +161,76 @@
 
 <script>
 import axios from "axios";
+import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
       apiEndpoint: this.$store.state.apiEndpoint,
       categories: ["property", "car", "electronics", "furniture"],
-      selectedCategory: 0,
+      errors: [],
+      formCategory: "",
       formData: {
-        title: "My Title",
+        title: "My 3",
         description: "My Description",
         date_online: "1/16/2020",
         date_offline: "1/22/2020",
         price: 2253,
         currency: "$",
+        category: "",
         mobile: "491-639-5303",
         email: "email@yahoo.com",
-        category: "",
         slug: true,
         featured: false,
       },
     };
   },
+  mounted() {
+    // Restore inputs if possible
+    if (this.getValidatedListing) {
+      this.formData = this.getValidatedListing;
+      this.formCategory = this.getValidatedListing.category;
+    }
+  },
+  computed: {
+    ...mapGetters(["getValidatedListing"]),
+  },
   methods: {
-    createListing() {
+    ...mapActions(["createListing"]),
+    selectCategory(category) {
+      this.formCategory = category;
+    },
+    checkForm: function(e) {
+      // Reset Errors before check
+      this.errors = [];
+
+      if (!this.formData.title) {
+        this.errors.push("Title required.");
+      }
+      if (!this.formData.description) {
+        this.errors.push("Description required.");
+      }
+
+      if (this.errors.length === 0) {
+        this.validate();
+      }
+
+      e.preventDefault();
+    },
+    validate() {
+      // Retrive Data
       const data = {
         ...this.formData,
-        category: this.categories[this.selectedCategory],
+        category: this.formCategory,
       };
 
-      const raw = JSON.stringify(data);
+      //  Validate Everything
 
-      let requestOptions = {
-        method: "POST",
-        body: raw,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+      //  Send validated data to store
+      this.createListing(data);
 
-      fetch(this.apiEndpoint + "/listings", requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+      //  Navigate to confirmation route
+
+      // this.$router.push({ name: "confirm" });
     },
   },
 };

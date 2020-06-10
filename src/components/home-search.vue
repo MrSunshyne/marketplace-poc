@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       apiEndpoint: this.$store.state.apiEndpoint,
-      term: "two",
+      term: "",
       results: [],
     };
   },

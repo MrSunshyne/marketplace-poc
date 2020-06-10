@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import router from "../router/index";
 
 Vue.use(Vuex);
 
@@ -9,6 +10,7 @@ export default new Vuex.Store({
     currentListing: null,
     searchResults: [],
     searchBusy: false,
+    validatedListing: [],
   },
   getters: {
     getSearchResults(state) {
@@ -17,9 +19,17 @@ export default new Vuex.Store({
     getSearchBusy(state) {
       return state.searchBusy;
     },
+    getValidatedListing(state) {
+      return state.validatedListing;
+    },
   },
   mutations: {},
   actions: {
+    createListing({ state }, payload) {
+      state.validatedListing = payload;
+
+      router.push({ name: "confirm" });
+    },
     searchTerm({ state }, payload) {
       // search
       fetch(state.apiEndpoint + "/listings?q=" + payload + "&_limit=10")
