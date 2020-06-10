@@ -13,7 +13,7 @@ const routes = [
     component: PageHome,
   },
   {
-    path: "/+",
+    path: "/add",
     name: "create",
     component: PageCreate,
   },
