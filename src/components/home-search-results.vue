@@ -30,11 +30,13 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import LoadingPlaceholder from "./loading-placeholder.vue";
 
 import ListingSingle from "../components/listing-single";
 export default {
   components: {
     ListingSingle,
+    LoadingPlaceholder,
   },
   data() {
     return {

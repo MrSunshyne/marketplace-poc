@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapGetters } from "vuex";
 export default {
   data() {
@@ -51,13 +50,17 @@ export default {
       let requestOptions = {
         method: "POST",
         body: raw,
+        redirect: "manual",
         headers: {
           "Content-Type": "application/json",
         },
       };
 
       fetch(this.apiEndpoint + "/listings", requestOptions)
-        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
         .then((data) => {
           console.log("Success:", data);
         })
