@@ -11,7 +11,7 @@
       </router-link>
       <div
         :class="this.$route.name == 'confirm' ? 'bg-gray-700 text-white' : ''"
-        class="block font-bold capitalize rounded-left px-6 py-2 bg-gray-200 flex items-center space-x-2"
+        class="block font-bold capitalize  px-6 py-2 bg-gray-200 flex items-center space-x-2"
       >
         <div class="text-3xl font-black">2</div>
         <div class="font-light text-2xl">confirm</div>

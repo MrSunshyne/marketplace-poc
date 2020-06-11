@@ -7,6 +7,7 @@ import PageLogin from "../views/PageLogin.vue";
 import PageRegister from "../views/PageRegister.vue";
 import PageCreate from "../views/PageCreate.vue";
 import PageConfirm from "../views/PageConfirm.vue";
+import PageSuccess from "../views/PageConfirm.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -28,6 +29,11 @@ const routes = [
         path: "confirm",
         name: "confirm",
         component: PageConfirm,
+      },
+      {
+        path: "success",
+        name: "success",
+        component: PageSuccess,
       },
     ],
   },
