@@ -30,8 +30,19 @@ export default new Vuex.Store({
       router.push({ name: "confirm" });
     },
     searchTerm({ state }, payload) {
+      // ES6 Destructuring
+      const { term, price } = payload;
+      let priceQuery = "";
+
+      if (price !== null) {
+        console.log(price);
+        priceQuery = `&price=${price}`;
+      }
+
       // search
-      fetch(state.apiEndpoint + "/listings?q=" + payload + "&_limit=10")
+      fetch(
+        state.apiEndpoint + "/listings?q=" + term + "&_limit=10" + priceQuery
+      )
         .then((res) => res.json())
         .then((result) => {
           state.searchResults = result;

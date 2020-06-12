@@ -20,6 +20,12 @@
               placeholder="House, apartment, car.."
               v-model="term"
             />
+            <input
+              type="text"
+              class="p-3 border-4 border-l-0 border-r-0 w-24 border-gray-200 text-2xl text-center"
+              placeholder="$ 200"
+              v-model="price"
+            />
           </div>
 
           <div
@@ -27,7 +33,7 @@
           >
             <button
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-              @click.prevent="searchTerm(term)"
+              @click.prevent="searchTerm({ term, price })"
             >
               Search
             </button>
@@ -54,6 +60,7 @@ export default {
     return {
       apiEndpoint: this.$store.state.apiEndpoint,
       term: "",
+      price: null,
       results: [],
     };
   },
