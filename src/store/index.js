@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     apiEndpoint: process.env.VUE_APP_BASEURL,
     currentListing: null,
-    searchResults: [],
+    searchResults: null,
     searchBusy: false,
     validatedListing: [],
   },

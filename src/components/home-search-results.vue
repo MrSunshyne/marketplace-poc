@@ -25,6 +25,19 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      <div
+        class="flex flex-col items-center justify-center py-32 space-y-5 bg-gray-200 mb-16"
+      >
+        <h2 class="text-3xl font-bold text-center text-gray-700">
+          No Results... :( <br />
+          Try something else?
+        </h2>
+        <p class="text-xl text-gray-500">
+          Hint: Try "Two" as title or "200" as price. They exist in the db :D
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
