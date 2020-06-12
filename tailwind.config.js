@@ -1,5 +1,5 @@
 module.exports = {
-  purge: false,
+  purge: ["./src/**/*.vue"],
   theme: {
     borderRadius: {
       none: "0",
