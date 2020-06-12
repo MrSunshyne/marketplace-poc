@@ -2,16 +2,6 @@
   <div>
     <ValidationObserver v-slot="{ handleSubmit }">
       <form @submit.prevent="handleSubmit(validate)">
-        <div
-          v-if="errors.length"
-          class="bg-yellow-300 rounded-lg py-3 px-8 mb-8"
-        >
-          <p class="font-bold">🥴 Please correct the following error(s):</p>
-          <ol class="list-decimal list-inside py-2">
-            <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
-          </ol>
-        </div>
-
         <div class="grid grid-cols-4 gap-4">
           <ValidationProvider
             class="col-span-3 flex flex-col space-y-2 "
@@ -29,6 +19,7 @@
               :class="errors.length > 0 ? 'border-red-400' : ''"
               type="text"
               id="title"
+              ref="title"
             />
           </ValidationProvider>
 
@@ -206,24 +197,28 @@ export default {
     return {
       apiEndpoint: this.$store.state.apiEndpoint,
       categories: ["property", "car", "electronics", "furniture"],
-      errors: [],
       formCategory: "",
+      errors: [],
       formData: {
-        title: "My 3",
-        description: "My Description",
+        title: "",
+        description: "",
         date_online: "1/16/2020",
         date_offline: "1/22/2020",
-        price: 2253,
+        price: 0,
         currency: "$",
         category: "property",
-        mobile: "491-639-5303",
-        email: "email@yahoo.com",
+        mobile: "",
+        email: "",
         slug: true,
         featured: false,
       },
     };
   },
   mounted() {
+    // Focus title on mounted
+
+    this.focusInput();
+
     // Restore inputs if possible
     if (this.getValidatedListing) {
       this.formData = this.getValidatedListing;
@@ -244,27 +239,18 @@ export default {
     selectCategory(category) {
       this.formCategory = category;
     },
-    checkForm: function(e) {
-      // Reset Errors before check
-      this.errors = [];
-
-      this.validate();
+    focusInput() {
+      this.$refs.title.focus();
     },
     validate() {
-      // Retrive Data
+      // Retreive Data
       const data = {
         ...this.formData,
         category: this.formCategory,
       };
 
-      //  Validate Everything
-
       //  Send validated data to store
       this.createListing(data);
-
-      //  Navigate to confirmation route
-
-      // this.$router.push({ name: "confirm" });
     },
   },
 };

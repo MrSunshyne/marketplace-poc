@@ -1,6 +1,6 @@
 <template>
   <router-link
-    class="flex flex-col rounded-lg shadow-lg hover:shadow-sm transition duration-300 ease-in-out transition-shadow overflow-hidden"
+    class="flex flex-col rounded-lg shadow-lg hover:shadow-sm transition duration-300 ease-in-out transition-shadow overflow-hidden bg-white"
     :to="{ name: 'detail', params: { id: details.id } }"
   >
     <div class="flex-shrink-0">
