@@ -63,7 +63,7 @@
               Back
             </router-link>
           </span>
-          <span class="ml-3 inline-flex rounded-md shadow-sm">
+          <span class="ml-3 inline-flex rounded-md shadow-sm" v-if="!success">
             <button
               class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
               @click="postListing"
@@ -79,6 +79,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+
 export default {
   data() {
     return {
@@ -90,6 +91,9 @@ export default {
   },
   computed: {
     ...mapGetters(["getValidatedListing"]),
+  },
+  components:  {
+    
   },
   methods: {
     postListing() {
