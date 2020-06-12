@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  app:
+    image: node:12.2.0-alpine
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./app:/home/node/app
+    ports:
+      - "8081:8080"
+    command: "npm run serve"
+
+  api:
+    image: clue/json-server
+    volumes:
+      - "./api/db.json:/data/db.json"
+    ports:
+      - "3535:3000"
+    entrypoint: ["json-server", "/data/db.json", "--delay", "1000"]

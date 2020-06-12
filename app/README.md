@@ -4,15 +4,28 @@
 
 1. Starter Template : [MrSunshyne/vue-tailwind-boilerplate](https://github.com/mrsunshyne/vue-tailwind-boilerplate)
 
+## Stack
+
+- VueJS @v2
+- TailwindCSS @v1.14+
+- Vee Validate @latest
+
 ## Pre requisites
 
-1. nodejs & npm
+1. nodejs v12+ & npm v6+
 2. json-server `$ npm install -g json-server`
 
 ## Usage
 
+There are two ways to run this project.
+
+1. [Manual](#1-manual-usage)
+2. [Docker](#2-docker-compose)
+
+### 1. Manual Usage
+
 1. Clone the repository
-2. Install project depenencies using `$ npm install` in the project directory
+2. Install project depenencies using `$ npm install` in the project directory (/app)
 
 3. cd in the `api` directory and start the json-server with a 1000s delay for theatrical purposes by running
 
@@ -22,11 +35,13 @@
 
    `$ npm run serve`
 
-## Stack
+### 2. Docker Compose
 
-- VueJS
-- TailwindCSS
-- Vee Validate
+You need to have docker and docker-compose installed
+
+Run `$ docker-compose up -d`
+
+Visit http://localhost:8081/ to view the app
 
 ## Features Requested
 
@@ -67,10 +82,3 @@ And search should have at least the following features.
 - Sign Up / Sign In Pages for User Creation
 - Turn the Listing Create into a 2 Step Wizard.
 - Implement PurgeCSS.
-
-## Deploy on Netlify (deprecated)
-
-Note : Serving the data from json-server doesn't allow the app to be deployed easily on netlify.
-Would have to implement cloud functions.
-
-<!-- # [View Site ](https://marketplace-poc.netlify.app) -->
