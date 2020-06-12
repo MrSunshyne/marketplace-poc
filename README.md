@@ -4,21 +4,19 @@
 
 1. Starter Template : [MrSunshyne/vue-tailwind-boilerplate](https://github.com/mrsunshyne/vue-tailwind-boilerplate)
 
-## Requirements
+## Pre requisites
 
-1. Everything in package.json. `$ npm install` at the project root
-2. install `json-server` globally. `$ npm install -g json-server`
+1. nodejs & npm
+2. json-server `$ npm install -g json-server`
 
 ## Usage
 
 1. Clone the repository
-2. Create an .env file with this content:
+2. Install project depenencies using `$ npm install` in the project directory
 
-   `VUE_APP_BASEURL = "http://localhost:3535"`
+3. cd in the `api` directory and start the json-server with a 1000s delay for theatrical purposes by running
 
-3. cd in the `public/api` directory and start the json-server by running
-
-   `$ json-server db.json --watch --port 3535`
+   `$ json-server db.json --watch --port 3535 --delay 1000`
 
 4. Run the vue app at the project root using
 
@@ -28,8 +26,9 @@
 
 - VueJS
 - TailwindCSS
+- Vee Validate
 
-## Features
+## Features Requested
 
 - **A Listing Search Page**
   (which could also be the Home / Landing Page).
@@ -64,7 +63,10 @@ And search should have at least the following features.
 
 ## Bonus Features
 
-.. we'll see ..
+- Extend the search to add Filtering for Price
+- Sign Up / Sign In Pages for User Creation
+- Turn the Listing Create into a 2 Step Wizard.
+- Implement PurgeCSS.
 
 ## Deploy on Netlify (deprecated)
 

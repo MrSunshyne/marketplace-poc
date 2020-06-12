@@ -6,9 +6,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    apiEndpoint: process.env.VUE_APP_BASEURL,
+    apiEndpoint: "http://localhost:3535", // Should probably be in an .env file
     currentListing: null,
-    searchResults: null,
+    searchResults: false,
     searchBusy: false,
     validatedListing: [],
   },
@@ -45,7 +45,11 @@ export default new Vuex.Store({
       )
         .then((res) => res.json())
         .then((result) => {
-          state.searchResults = result;
+          if (result.length === 0) {
+            state.searchResults = "noresult";
+          } else {
+            state.searchResults = result;
+          }
         })
         .catch((error) => {});
     },
