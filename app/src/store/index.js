@@ -31,17 +31,31 @@ export default new Vuex.Store({
     },
     searchTerm({ state }, payload) {
       // ES6 Destructuring
-      const { term, price } = payload;
+      const { term, price, selectedCategory } = payload;
+      let termQuery = "";
       let priceQuery = "";
+      let selectedCategoryQuery = "";
 
-      if (price !== null) {
-        console.log(price);
+      if (price !== null && price !== "") {
         priceQuery = `&price=${price}`;
+      }
+
+      if (selectedCategory !== null && selectedCategory !== "") {
+        selectedCategoryQuery = `&category=${selectedCategory}`;
+      }
+
+      if (term !== null && term !== "") {
+        termQuery = `&title_like=${term}`;
       }
 
       // search
       fetch(
-        state.apiEndpoint + "/listings?q=" + term + "&_limit=10" + priceQuery
+        state.apiEndpoint +
+          "/listings?" +
+          "&_limit=10" +
+          termQuery +
+          priceQuery +
+          selectedCategoryQuery
       )
         .then((res) => res.json())
         .then((result) => {

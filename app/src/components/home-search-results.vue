@@ -13,7 +13,7 @@
         </p>
       </div>
     </div>
-    <template v-if="getSearchResults">
+    <template v-else-if="getSearchResults">
       <div
         class="relative pb-20 px-4 sm:px-6 lg:pb-28 lg:px-8"
         v-if="getSearchResults.length > 0"

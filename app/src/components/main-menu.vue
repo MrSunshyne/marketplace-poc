@@ -11,7 +11,7 @@
       <router-link
         v-if="!$route.path.includes('/new')"
         :to="{ name: 'create' }"
-        class="hover:bg-gray-800 bg-gray-700 text-sm text-white hover:transition-opacity transition rounded-lg px-4 items-center flex "
+        class="hidden md:flex hover:bg-gray-800 bg-gray-700 text-sm text-white hover:transition-opacity transition rounded-lg px-4 items-center"
         >Create Listing +
       </router-link>
     </div>

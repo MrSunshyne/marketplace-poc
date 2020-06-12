@@ -2,7 +2,7 @@
   <div>
     <ValidationObserver v-slot="{ handleSubmit }">
       <form @submit.prevent="handleSubmit(validate)">
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 px-8 md:px-0 md:grid-cols-4 gap-4">
           <ValidationProvider
             class="col-span-3 flex flex-col space-y-2 "
             name="Title"
@@ -43,7 +43,7 @@
           </ValidationProvider>
 
           <div class="col-span-2 flex flex-col space-y-2 ">
-            <FormLabel label="date_online">Date_online</FormLabel>
+            <FormLabel label="date_online">Publish date</FormLabel>
             <input
               v-model="formData.date_online"
               class="p-3 p-2 focus:border-gray-500 border-2 border-gray-200 rounded-lg "
@@ -54,7 +54,7 @@
           </div>
 
           <div class="col-span-2 flex flex-col space-y-2 ">
-            <FormLabel label="date_offline">date_offline</FormLabel>
+            <FormLabel label="date_offline">Expiration date</FormLabel>
             <input
               v-model="formData.date_offline"
               class="p-3 p-2 focus:border-gray-500 border-2 border-gray-200 rounded-lg "
@@ -85,7 +85,7 @@
           <ValidationProvider
             class="col-span-2 flex flex-col space-y-2 "
             name="Mobile"
-            rules="alpha_dash"
+            rules="numeric"
             v-slot="{ errors }"
           >
             <div class="flex items-end space-x-2 justify-between">
@@ -104,7 +104,7 @@
           <ValidationProvider
             class="col-span-2 flex flex-col space-y-2 "
             name="Description"
-            rules="required|alpha_spaces"
+            rules="required"
             v-slot="{ errors }"
           >
             <div class="flex items-end space-x-2 justify-between">
@@ -121,12 +121,12 @@
 
           <div class="col-span-2 flex flex-col space-y-2">
             <FormLabel label="category">Pick a category</FormLabel>
-            <div class="flex space-x-4">
+            <div class="grid grid-cols-4 md:grid-cols-4 gap-3">
               <div
                 v-for="category in categories"
                 :key="category"
                 @click="selectCategory(category)"
-                class="cursor-pointer bg-gray-200 px-4 py-2 rounded w-1/4 flex flex-col justify-center"
+                class="cursor-pointer bg-gray-200 px-4 py-2 rounded flex flex-col justify-center"
                 :class="
                   formCategory == category
                     ? 'font-bold bg-red-300 text-white'
@@ -178,6 +178,7 @@ import {
   alpha,
   numeric,
   alpha_spaces,
+  alpha_num,
   alpha_dash,
 } from "vee-validate/dist/rules";
 import FormErrors from "../components/form-error.vue";
@@ -189,6 +190,7 @@ extend("email", email);
 extend("alpha", alpha);
 extend("numeric", numeric);
 extend("alpha_spaces", alpha_spaces);
+extend("alpha_num", alpha_num);
 extend("alpha_dash", alpha_dash);
 extend("required", required);
 
