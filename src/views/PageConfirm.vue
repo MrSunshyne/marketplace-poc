@@ -38,19 +38,112 @@
 
             <div class="pt-6">
               <router-link
-              :to="{name: 'detail', params: {id: success.id}}"
+                :to="{ name: 'detail', params: { id: success.id } }"
                 class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition duration-150 ease-in-out"
               >
                 View listing
-              </router-link
-              :to="{name: 'detail', params: {id: success.id}}">
+              </router-link>
             </div>
           </div>
         </div>
       </div>
 
-      <div v-else>
-        {{ getValidatedListing }}
+      <div v-else class="relative">
+        <BusyLoader class="absolute inset-0 w-full h-full " v-if="busy" />
+        <div
+          class="bg-white shadow-xl overflow-hidden sm:rounded-lg"
+          v-if="getValidatedListing"
+        >
+          <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+            <h3 class="text-2xl  leading-6 font-bold text-gray-900">
+              Preview : {{ getValidatedListing.title }}
+            </h3>
+          </div>
+          <div class="grid grid-cols-2">
+            <div
+              class="bg-gray-100 flex justify-center items-center text-3xl font-bold text-gray-300"
+            >
+              image goes here
+            </div>
+            <div class="">
+              <div class="px-4 py-5 sm:px-6">
+                <dl class="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
+                  <div class="sm:col-span-2">
+                    <label
+                      class="text-xs uppercase leading-5 font-medium text-gray-500"
+                    >
+                      Description
+                    </label>
+                    <div class="mt-1 text-sm leading-5 text-gray-900">
+                      {{ getValidatedListing.description }}
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label
+                      class="text-xs uppercase leading-5 font-medium text-gray-500"
+                    >
+                      Available since
+                    </label>
+                    <div class="mt-1 text-sm leading-5 text-gray-900">
+                      {{ getValidatedListing.date_online }}
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label
+                      class="text-xs uppercase leading-5 font-medium text-gray-500"
+                    >
+                      Offer expires in
+                    </label>
+                    <div class="mt-1 text-sm leading-5 text-gray-900">
+                      {{ getValidatedListing.date_offline }}
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label
+                      class="text-xs uppercase leading-5 font-medium text-gray-500"
+                    >
+                      Email address
+                    </label>
+                    <div class="mt-1 text-sm leading-5 text-gray-900">
+                      {{ getValidatedListing.email }}
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label
+                      class="text-xs uppercase leading-5 font-medium text-gray-500"
+                    >
+                      Price
+                    </label>
+                    <div class="mt-1 text-sm leading-5 text-gray-900">
+                      {{ getValidatedListing.currency }}
+                      {{ getValidatedListing.price }}
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label
+                      class="text-xs uppercase leading-5 font-medium text-gray-500"
+                    >
+                      Mobile
+                    </label>
+                    <div class="mt-1 text-sm leading-5 text-gray-900">
+                      {{ getValidatedListing.mobile }}
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <label
+                      class="text-xs uppercase leading-5 font-medium text-gray-500"
+                    >
+                      Category
+                    </label>
+                    <div class="mt-1 text-sm leading-5 text-gray-900">
+                      {{ getValidatedListing.category }}
+                    </div>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="mt-8 border-t border-gray-200 pt-5">
@@ -79,7 +172,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-
+import BusyLoader from "../components/busy-loader.vue";
 export default {
   data() {
     return {
@@ -87,16 +180,18 @@ export default {
       apiEndpoint: this.$store.state.apiEndpoint,
       categories: ["property", "car", "electronics", "furniture"],
       selectedCategory: 0,
+      busy: false,
     };
   },
   computed: {
     ...mapGetters(["getValidatedListing"]),
   },
-  components:  {
-    
+  components: {
+    BusyLoader,
   },
   methods: {
     postListing() {
+      this.busy = true;
       const data = this.getValidatedListing;
 
       const raw = JSON.stringify(data);
@@ -117,9 +212,11 @@ export default {
         })
         .then((data) => {
           console.log("Success:", data);
+          this.busy = false;
           this.success = data;
         })
         .catch((error) => {
+          this.busy = false;
           console.error("Error:", error);
         });
     },
