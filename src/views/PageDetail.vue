@@ -95,6 +95,13 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      <content-placeholders class="shadow p-2">
+        <content-placeholders-heading />
+        <content-placeholders-img />
+        <content-placeholders-text :lines="3" />
+      </content-placeholders>
+    </div>
   </div>
 </template>
 

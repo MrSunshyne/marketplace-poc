@@ -36,22 +36,6 @@
             </div>
           </div>
 
-          <div class="mt-6 flex items-center justify-between">
-            <div class="flex items-center">
-              <input
-                id="remember_me"
-                type="checkbox"
-                class="form-checkbox h-4 w-4 text-red-600 transition duration-150 ease-in-out"
-              />
-              <label
-                for="remember_me"
-                class="ml-2 block text-sm leading-5 text-gray-900"
-              >
-                Remember me
-              </label>
-            </div>
-          </div>
-
           <div class="mt-6">
             <button
               type="submit"
