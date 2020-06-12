@@ -207,11 +207,9 @@ export default {
 
       fetch(this.apiEndpoint + "/listings", requestOptions)
         .then((response) => {
-          console.log(response);
           return response.json();
         })
         .then((data) => {
-          console.log("Success:", data);
           this.busy = false;
           this.success = data;
         })

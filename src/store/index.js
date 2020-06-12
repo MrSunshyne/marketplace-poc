@@ -23,7 +23,6 @@ export default new Vuex.Store({
       return state.validatedListing;
     },
   },
-  mutations: {},
   actions: {
     createListing({ state }, payload) {
       state.validatedListing = payload;
@@ -35,12 +34,9 @@ export default new Vuex.Store({
       fetch(state.apiEndpoint + "/listings?q=" + payload + "&_limit=10")
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           state.searchResults = result;
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch((error) => {});
     },
     clearSearchResults({ state }) {
       state.searchResults = [];

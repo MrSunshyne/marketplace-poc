@@ -20,7 +20,7 @@
             v-slot="{ errors }"
           >
             <div class="flex items-end space-x-2 justify-between">
-              <FormLabel label="title">Title</FormLabel>
+              <FormLabel label="title">Title *</FormLabel>
               <FormErrors :errors="errors" />
             </div>
             <input
@@ -39,7 +39,7 @@
             v-slot="{ errors }"
           >
             <div class="flex items-end space-x-2 justify-between">
-              <FormLabel label="price">Price</FormLabel>
+              <FormLabel label="price">Price *</FormLabel>
               <FormErrors :errors="errors" />
             </div>
             <input
@@ -117,7 +117,7 @@
             v-slot="{ errors }"
           >
             <div class="flex items-end space-x-2 justify-between">
-              <FormLabel label="description">description</FormLabel>
+              <FormLabel label="description">Description * </FormLabel>
               <FormErrors :errors="errors" />
             </div>
             <textarea

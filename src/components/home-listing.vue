@@ -53,7 +53,6 @@ export default {
         })
         .catch((error) => {
           this.busy = false;
-          console.log("sd");
           this.error = error;
         });
     },
