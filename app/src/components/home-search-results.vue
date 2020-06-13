@@ -9,7 +9,8 @@
           Try something else?
         </h2>
         <p class="text-xl text-gray-500">
-          Hint: Try "Two" as title or "200" as price. They exist in the db :D
+          Hint: Try "Mauritius" as title or "200" as price. They exist in the db
+          :D
         </p>
       </div>
     </div>

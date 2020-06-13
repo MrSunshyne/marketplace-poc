@@ -2,18 +2,13 @@
 
 ## Background
 
-1. Starter Template : [MrSunshyne/vue-tailwind-boilerplate](https://github.com/mrsunshyne/vue-tailwind-boilerplate)
+Starter Template : [MrSunshyne/vue-tailwind-boilerplate](https://github.com/mrsunshyne/vue-tailwind-boilerplate)
 
 ## Stack
 
-- VueJS @v2
-- TailwindCSS @v1.14+
+- VueJS 2
+- TailwindCSS @latest
 - Vee Validate @latest
-
-## Pre requisites
-
-1. nodejs v12+ & npm v6+
-2. json-server `$ npm install -g json-server`
 
 ## Usage
 
@@ -22,7 +17,16 @@ There are two ways to run this project.
 1. [Manual](#1-manual-usage)
 2. [Docker](#2-docker-compose)
 
+> Note: I added 1 second delay in the json-server intentionally so that intermediate states are visible.
+
 ### 1. Manual Usage
+
+#### Pre requisites
+
+1. nodejs v12+ & npm v6+
+2. json-server `$ npm install -g json-server`
+
+#### Installation Steps
 
 1. Clone the repository
 2. Install project depenencies using `$ npm install` in the project directory (/app)
@@ -78,7 +82,9 @@ And search should have at least the following features.
 
 ## Bonus Features
 
-- Extend the search to add Filtering for Price
-- Sign Up / Sign In Pages for User Creation
-- Turn the Listing Create into a 2 Step Wizard.
-- Implement PurgeCSS.
+- ✅ Extend the search to add Filtering for Price
+- ✅ Sign Up / Sign In Pages
+- ✅ Turn the Listing Create into a 2 Step Wizard.
+- ✅ Implement PurgeCSS.
+- ✅ Docker / docker-compose Setup
+- ✅ Automated Tests
