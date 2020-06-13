@@ -24,6 +24,7 @@
             <h3
               class="text-lg leading-6 font-medium text-gray-900"
               id="modal-headline"
+              data-cy="success"
             >
               Listing added with great success
             </h3>
@@ -158,6 +159,7 @@
           </span>
           <span class="ml-3 inline-flex rounded-md shadow-sm" v-if="!success">
             <button
+              id="confirm"
               class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-green-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
               @click="postListing"
             >

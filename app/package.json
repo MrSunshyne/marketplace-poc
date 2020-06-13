@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "test": "vue-cli-service test:e2e"
   },
   "dependencies": {
     "core-js": "^3.4.4",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.3",
+    "@vue/cli-plugin-e2e-cypress": "^4.4.4",
     "@vue/cli-plugin-router": "^4.2.3",
     "@vue/cli-plugin-vuex": "^4.2.3",
     "@vue/cli-service": "^4.2.3",

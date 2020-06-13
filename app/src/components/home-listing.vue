@@ -10,6 +10,7 @@
           <div
             class="grid gap-5 mx-auto lg:grid-cols-3 lg:max-w-none"
             v-if="featured"
+            data-cy="featured"
           >
             <ListingSingle
               v-for="listing in featured"
