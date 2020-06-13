@@ -44,6 +44,7 @@
 
           <div class="col-span-2 flex flex-col space-y-2 ">
             <FormLabel label="date_online">Publish date</FormLabel>
+
             <input
               v-model="formData.date_online"
               class="p-3 p-2 focus:border-gray-500 border-2 border-gray-200 rounded-lg "
@@ -170,6 +171,11 @@
 </template>
 
 <script>
+import FormErrors from "../components/form-error.vue";
+import FormLabel from "../components/form-label.vue";
+import { mapActions, mapGetters } from "vuex";
+
+// Vee Validate Configurations
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 import { extend } from "vee-validate";
 import {
@@ -181,11 +187,6 @@ import {
   alpha_num,
   alpha_dash,
 } from "vee-validate/dist/rules";
-import FormErrors from "../components/form-error.vue";
-import FormLabel from "../components/form-label.vue";
-
-import { mapActions, mapGetters } from "vuex";
-
 extend("email", email);
 extend("alpha", alpha);
 extend("numeric", numeric);
@@ -204,8 +205,8 @@ export default {
       formData: {
         title: "",
         description: "",
-        date_online: "1/16/2020",
-        date_offline: "1/22/2020",
+        date_online: new Date().toISOString().substr(0, 10),
+        date_offline: new Date().toISOString().substr(0, 10),
         price: 0,
         currency: "$",
         category: "property",
@@ -221,8 +222,13 @@ export default {
 
     this.focusInput();
 
+    this.restoreListingFromLocalStorage();
+
     // Restore inputs if possible
-    if (this.getValidatedListing) {
+    console.log(this.getValidatedListing);
+    if (this.getValidatedListing.hasOwnProperty("title")) {
+      // Restoring from store
+      console.log("restore from store");
       this.formData = this.getValidatedListing;
       this.formCategory = this.getValidatedListing.category;
     }
@@ -237,7 +243,7 @@ export default {
     ...mapGetters(["getValidatedListing"]),
   },
   methods: {
-    ...mapActions(["createListing"]),
+    ...mapActions(["createListing", "restoreListingFromLocalStorage"]),
     selectCategory(category) {
       this.formCategory = category;
     },

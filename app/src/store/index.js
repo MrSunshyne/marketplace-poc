@@ -26,8 +26,16 @@ export default new Vuex.Store({
   actions: {
     createListing({ state }, payload) {
       state.validatedListing = payload;
-
+      window.localStorage.setItem("validatedListing", JSON.stringify(payload));
       router.push({ name: "confirm" });
+    },
+    clearValidatedListing({ state }) {
+      window.localStorage.clear("validatedListing");
+      this.validatedListing = [];
+    },
+    restoreListingFromLocalStorage({ state }) {
+      let fromLocalStorage = window.localStorage.getItem("validatedListing");
+      state.validatedListing = JSON.parse(fromLocalStorage);
     },
     searchTerm({ state }, payload) {
       // ES6 Destructuring

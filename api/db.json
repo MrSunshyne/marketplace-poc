@@ -54,7 +54,7 @@
       "email": "abouldon3@ucsd.edu",
       "category": "car",
       "slug": true,
-      "featured": false
+      "featured": true
     },
     {
       "id": 5,
