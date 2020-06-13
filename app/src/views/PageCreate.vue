@@ -219,16 +219,14 @@ export default {
   },
   mounted() {
     // Focus title on mounted
-
     this.focusInput();
 
+    // Check if Local Storage has cookies for us /jk
     this.restoreListingFromLocalStorage();
 
     // Restore inputs if possible
-    console.log(this.getValidatedListing);
     if (this.getValidatedListing.hasOwnProperty("title")) {
       // Restoring from store
-      console.log("restore from store");
       this.formData = this.getValidatedListing;
       this.formCategory = this.getValidatedListing.category;
     }

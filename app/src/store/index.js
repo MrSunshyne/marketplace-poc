@@ -31,11 +31,13 @@ export default new Vuex.Store({
     },
     clearValidatedListing({ state }) {
       window.localStorage.clear("validatedListing");
-      this.validatedListing = [];
+      state.validatedListing = [];
     },
     restoreListingFromLocalStorage({ state }) {
       let fromLocalStorage = window.localStorage.getItem("validatedListing");
-      state.validatedListing = JSON.parse(fromLocalStorage);
+      if (fromLocalStorage !== null) {
+        state.validatedListing = JSON.parse(fromLocalStorage);
+      }
     },
     searchTerm({ state }, payload) {
       // ES6 Destructuring

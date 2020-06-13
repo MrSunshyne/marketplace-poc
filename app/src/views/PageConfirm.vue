@@ -171,7 +171,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import BusyLoader from "../components/busy-loader.vue";
 export default {
   data() {
@@ -190,6 +190,8 @@ export default {
     BusyLoader,
   },
   methods: {
+    ...mapActions(["clearValidatedListing"]),
+
     postListing() {
       this.busy = true;
       const data = this.getValidatedListing;
@@ -212,6 +214,7 @@ export default {
         .then((data) => {
           this.busy = false;
           this.success = data;
+          this.clearValidatedListing();
         })
         .catch((error) => {
           this.busy = false;
