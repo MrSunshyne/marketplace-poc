@@ -43,6 +43,7 @@ There are two ways to run this project.
 
 You need to have docker and docker-compose installed
 
+Run `$ cd app && npm install`
 Run `$ docker-compose up -d`
 
 Visit http://localhost:8081/ to view the app
