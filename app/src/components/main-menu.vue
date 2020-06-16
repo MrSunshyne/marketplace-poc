@@ -1,6 +1,6 @@
 <template>
   <div
-    class="main-menu container mx-auto font-bold md:flex justify-center md:justify-between items-center py-3 md:py-10"
+    class="main-menu container mx-auto font-bold md:flex justify-center md:justify-between items-center py-3 my-3 md:py-10"
   >
     <div class="flex space-x-4">
       <router-link

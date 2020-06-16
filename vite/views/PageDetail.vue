@@ -5,7 +5,7 @@
       v-if="currentListing"
     >
       <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-        <h3 class="text-2xl  leading-6 font-bold text-gray-900">
+        <h3 class="text-2xl leading-6 font-bold text-gray-900">
           {{ currentListing.title }}
         </h3>
       </div>
@@ -96,11 +96,7 @@
       </div>
     </div>
     <div v-else>
-      <content-placeholders class="shadow p-2">
-        <content-placeholders-heading />
-        <content-placeholders-img />
-        <content-placeholders-text :lines="3" />
-      </content-placeholders>
+      loading
     </div>
   </div>
 </template>

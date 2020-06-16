@@ -13,8 +13,8 @@
         </h2>
 
         <form class="flex flex-col items-center space-y-4">
-          <div class="md:flex justify-center  space-y-4 md:space-x-0">
-            <div class="search-box  space-y-4">
+          <div class="md:flex justify-center space-y-4 md:space-x-0">
+            <div class="search-box space-y-4">
               <input
                 type="text"
                 class="p-3 border-4 border-gray-200 text-2xl md:rounded-right text-center"
@@ -33,7 +33,7 @@
               class="inline-flex w-64 md:w-auto p rounded-md overflow-hidden shadow rounded md:rounded-left"
             >
               <button
-                class="inline-flex w-full md:w-auto  items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                class="inline-flex w-full md:w-auto items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
                 @click.prevent="searchTerm({ term, price, selectedCategory })"
               >
                 Search
@@ -60,44 +60,42 @@
             </span>
           </div>
         </form>
-
-        <div class="ml-3 inline-flex ">
-          <router-link
-            :to="{ name: 'create' }"
-            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium  text-red-700 hover:text-red-600  focus:outline-none focus:shadow-outline focus:border-red-300 transition duration-150 ease-in-out"
-          >
-            I want to sell something
-          </router-link>
-        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+// import { mapActions, mapGetters } from "vuex";
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
-  data() {
+  setup() {
+    const term = "";
+    const price = null;
+    const results = [];
+    const selectedCategory = "";
+    const categories = ["property", "car", "electronics", "furniture"];
+
+    const store = useStore();
+
+    const apiEndpoint = computed(() => store.state.apiEndpoint);
+    const getSearchResults = computed(() => store.state.searchResults);
+
+    function searchTerm(payload) {
+      store.dispatch("searchTerm", payload);
+    }
+
     return {
-      apiEndpoint: this.$store.state.apiEndpoint,
-      term: "",
-      price: null,
-      results: [],
-      categories: ["property", "car", "electronics", "furniture"],
-      selectedCategory: "",
+      apiEndpoint,
+      term,
+      price,
+      selectedCategory,
+      results,
+      categories,
+      searchTerm,
     };
   },
-  computed: {
-    ...mapGetters(["getSearchResults"]),
-  },
-  methods: {
-    ...mapActions(["searchTerm"]),
-  },
-  // watch: {
-  //   term: function(n, o) {
-  //     this.searchTerm();
-  //   },
-  // },
 };
 </script>
 

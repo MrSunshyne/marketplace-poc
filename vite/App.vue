@@ -1,9 +1,7 @@
 <template>
   <div class="flex min-h-screen flex-col page">
     <main-menu></main-menu>
-    <transition name="fade" mode="out-in">
-      <router-view class="container mx-auto flex-grow" />
-    </transition>
+    <router-view class="container mx-auto flex-grow" />
   </div>
 </template>
 
@@ -19,7 +17,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  overflow-y: scroll;
+}
+
 .page {
   // background-image: url("./assets/images/bg.svg");
   background-repeat: no-repeat;
@@ -27,15 +29,10 @@ export default {
   background-size: contain;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.3s;
-  transition-property: opacity;
-  transition-timing-function: ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
+@screen md {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }
 </style>
