@@ -89,3 +89,19 @@ And search should have at least the following features.
 - ✅ Implement PurgeCSS.
 - ✅ Docker / docker-compose Setup
 - ✅ Automated Tests
+
+## Vite + Vue 3
+
+There is an alternate implementation of the same project in Vue 3 + Vite. It also uses VueX 4 Beta and a sprinkle of Composition API.
+
+The aim was to experiment with migrating a project and demonstrate interest in the latest trends around VueJS.
+
+### Usage
+
+1. cd into vite/ and npm install
+2. `$ npm run dev` to start the dev server
+3. cd in the api directory and start the json-server
+
+   `$ json-server db.json --watch --port 3535`
+
+4. Navigate to http://localhost:3000
